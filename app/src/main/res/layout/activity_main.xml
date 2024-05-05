@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/orange"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:id="@+id/searchBar"
+            style="@style/MaterialSearchBarLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mt_hint="Search any product..."
+            app:mt_placeholder="@string/app_name"
+            app:mt_navIconEnabled="true"
+            app:mt_maxSuggestionsCount="10"
+            app:mt_speechMode="true" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_marginBottom="10dp">
+
+                <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                    android:id="@+id/carousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:showCaption="false"
+                    app:autoPlay="true"
+                    app:showNavigationButtons="false" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categoriesList"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="Goto Cart"
+        app:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_cart"
+        app:tint="@color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
